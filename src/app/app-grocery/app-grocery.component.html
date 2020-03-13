@@ -1,0 +1,38 @@
+<div class="container bg">
+
+  <h2> Grocery list manager </h2> 
+  <h6> Add the items you need below. Edit them if you need to, and check them off or delete them when you're done!</h6>
+  <div class="row justify-content-center">
+      <div class=" col-4" >
+          <div class="input-group">
+              <input type="text" (keyup.enter)="onClick()" class="form-control" placeholder="enter grocery items" [(ngModel)]="task.name" />
+              <div class="input-group-btn">
+                  <button class="btn btn-default" type="button" (click)="onClick()">  
+                   
+                      <span class="glyphicon glyphicon-plus-sign"></span>
+                      
+                  </button>
+        
+              </div>
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="button" (click)="onSortClick()">  
+                    <span class="	glyphicon glyphicon-sort-by-alphabet	
+                    "></span>
+                    
+                </button>
+            </div>
+          </div>
+          <ul class="list-group">
+              <li *ngFor="let task of tasks" class="list-group-item">
+                <input name="packersOff" class="strikethrough " value="" type="checkbox">
+                <label for="packersOff" class="strikeThis paddingLeft"> {{ task.name }} </label>
+                  <!-- <span (click)="onStrike(task)" [ngClass]="{'strike': task.strike}"> {{ task.name }} </span> -->
+                  <span (click)="onDelete(task)" class="glyphicon glyphicon-remove-sign floatright paddingLeft "></span>
+                  <span (click)="onEdit(task)" class="	glyphicon glyphicon-edit floatright paddingLeft"></span>
+                  
+                  <!-- -->
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
